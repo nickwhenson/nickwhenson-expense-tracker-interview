@@ -10,6 +10,7 @@ interface ExpenseFormProps {
 }
 
 export function ExpenseForm({ onSubmit, onCancel, initialData, isLoading }: ExpenseFormProps) {
+  const isEditMode = Boolean(initialData);
   const { data: categories } = useCategories();
   const [formData, setFormData] = useState<CreateExpenseData>({
     categoryId: initialData?.categoryId || 1,
@@ -55,13 +56,18 @@ export function ExpenseForm({ onSubmit, onCancel, initialData, isLoading }: Expe
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form
+      onSubmit={handleSubmit}
+      className="space-y-4"
+      data-testid={isEditMode ? 'expense-form-edit' : 'expense-form-add'}
+    >
       <div>
         <label htmlFor="category" className="block text-sm font-medium text-gray-700">
           Category
         </label>
         <select
           id="category"
+          data-testid="expense-form-category"
           value={formData.categoryId}
           onChange={(e) => setFormData({ ...formData, categoryId: Number(e.target.value) })}
           className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2"
@@ -81,6 +87,7 @@ export function ExpenseForm({ onSubmit, onCancel, initialData, isLoading }: Expe
         <input
           type="number"
           id="amount"
+          data-testid="expense-form-amount"
           step="0.01"
           value={formData.amount || ''}
           onChange={(e) => setFormData({ ...formData, amount: Number(e.target.value) })}
@@ -99,6 +106,7 @@ export function ExpenseForm({ onSubmit, onCancel, initialData, isLoading }: Expe
         <input
           type="text"
           id="description"
+          data-testid="expense-form-description"
           value={formData.description}
           onChange={(e) => setFormData({ ...formData, description: e.target.value })}
           className={`mt-1 block w-full rounded-md shadow-sm sm:text-sm border p-2 ${
@@ -116,6 +124,7 @@ export function ExpenseForm({ onSubmit, onCancel, initialData, isLoading }: Expe
         <input
           type="date"
           id="date"
+          data-testid="expense-form-date"
           value={formData.date}
           onChange={(e) => setFormData({ ...formData, date: e.target.value })}
           className={`mt-1 block w-full rounded-md shadow-sm sm:text-sm border p-2 ${
@@ -130,6 +139,7 @@ export function ExpenseForm({ onSubmit, onCancel, initialData, isLoading }: Expe
           type="button"
           onClick={onCancel}
           className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
+          data-testid={isEditMode ? 'expense-form-cancel-edit' : 'expense-form-cancel-add'}
         >
           Cancel
         </button>
@@ -137,8 +147,9 @@ export function ExpenseForm({ onSubmit, onCancel, initialData, isLoading }: Expe
           type="submit"
           disabled={isLoading}
           className="px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-700 disabled:opacity-50"
+          data-testid={isEditMode ? 'expense-form-submit-edit' : 'expense-form-submit-add'}
         >
-          {isLoading ? 'Saving...' : initialData ? 'Update' : 'Create'}
+          {isLoading ? 'Saving...' : isEditMode ? 'Update' : 'Create'}
         </button>
       </div>
     </form>

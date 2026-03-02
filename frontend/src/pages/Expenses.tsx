@@ -244,14 +244,15 @@ export function Expenses() {
         onClose={() => setDeleteConfirmId(null)}
         title="Delete Expense"
       >
-        <div className="space-y-4">
-          <p className="text-sm text-gray-500">
+        <div className="space-y-4" data-testid="delete-expense-modal-body">
+          <p className="text-sm text-gray-500" data-testid="delete-expense-modal-message">
             Are you sure you want to delete this expense? This action cannot be undone.
           </p>
           <div className="flex justify-end space-x-3">
             <button
               onClick={() => setDeleteConfirmId(null)}
               className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
+              data-testid="delete-expense-modal-cancel"
             >
               Cancel
             </button>
@@ -259,6 +260,7 @@ export function Expenses() {
               onClick={confirmDelete}
               disabled={deleteExpense.isPending}
               className="px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md hover:bg-red-700 disabled:opacity-50"
+              data-testid="delete-expense-modal-confirm"
             >
               {deleteExpense.isPending ? 'Deleting...' : 'Delete'}
             </button>
