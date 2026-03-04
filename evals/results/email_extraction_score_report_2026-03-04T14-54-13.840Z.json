@@ -1,0 +1,60 @@
+{
+  "generatedAt": "2026-03-04T14:54:13.840Z",
+  "input": {
+    "datasetPath": "/Users/nickhenson/Desktop/nickwhenson-expense-tracker-interview/evals/datasets/golden/email_expense_golden_v1.jsonl",
+    "resultsPath": "/Users/nickhenson/Desktop/nickwhenson-expense-tracker-interview/evals/datasets/results/email_extraction_eval_results_2026-03-04T14-52-54.893Z.jsonl"
+  },
+  "totals": {
+    "datasetCases": 60,
+    "scoredCases": 60,
+    "missingResults": 0,
+    "erroredCases": 0
+  },
+  "classification": {
+    "evaluatedCases": 50,
+    "correct": 47,
+    "accuracy": 94,
+    "truePositives": 37,
+    "trueNegatives": 10,
+    "falsePositives": 0,
+    "falseNegatives": 3,
+    "ambiguousCases": 10
+  },
+  "extraction": {
+    "expectedExpenseItems": 43,
+    "actualExpenseItems": 47,
+    "matchedExpenseItems": 34,
+    "precision": 72.34,
+    "recall": 79.07,
+    "f1": 75.56,
+    "amountAccuracyOnMatches": 100,
+    "merchantAccuracyOnMatches": 100,
+    "dateAccuracyOnMatches": 100
+  },
+  "byCaseType": {
+    "positive": {
+      "total": 10,
+      "classificationAccuracy": 100
+    },
+    "negative": {
+      "total": 10,
+      "classificationAccuracy": 100
+    },
+    "ambiguous": {
+      "total": 10,
+      "classificationAccuracy": 0
+    },
+    "multiple_amounts": {
+      "total": 10,
+      "classificationAccuracy": 90
+    },
+    "refund": {
+      "total": 10,
+      "classificationAccuracy": 80
+    },
+    "multi_currency": {
+      "total": 10,
+      "classificationAccuracy": 100
+    }
+  }
+}

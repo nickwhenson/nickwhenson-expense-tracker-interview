@@ -1,0 +1,11 @@
+id,from,to,subject,date,body,threadId
+smoke_001,receipts@uber.com,,Your Uber receipt,2025-11-01,Thanks for riding. Total charged: $24.18.,smoke_001
+smoke_002,billing@adobe.com,,Payment received,2025-11-02,We received your payment of $54.99 for Creative Cloud.,smoke_002
+smoke_003,newsletter@company.com,,Weekly digest,2025-11-03,Product updates and announcements for this week.,smoke_003
+smoke_004,security@service.com,,Password reset requested,2025-11-04,Click here to reset your password.,smoke_004
+smoke_005,receipt@diner.com,,Dinner receipt,2025-11-05,"Subtotal $40.00, Tax $3.60, Tip $8.00, Total charged $51.60.",smoke_005
+smoke_006,orders@marketplace.com,,Split charges,2025-11-06,Charged $12.00 for item A and $8.50 for item B.,smoke_006
+smoke_007,returns@amazon.com,,Return completed,2025-11-07,Refund amount: -$26.99 has been credited.,smoke_007
+smoke_008,receipt@taxi.fr,,Taxi receipt,2025-11-08,Montant facturé: EUR 32.00,smoke_008
+smoke_009,desk@hotel.com,,Pre-authorization hold,2025-11-09,Temporary hold of $200.00 was placed and will be released.,smoke_009
+smoke_010,,,Receipt,2025-11-10,Charged $10.00,smoke_010
