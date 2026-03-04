@@ -27,6 +27,7 @@ export function EmailImport() {
   const [emails, setEmails] = useState<EmailData[]>([]);
   const [fileName, setFileName] = useState<string>('');
   const [parseError, setParseError] = useState<string | null>(null);
+  const [parseNotice, setParseNotice] = useState<string | null>(null);
   const [draftExpenses, setDraftExpenses] = useState<DraftExpense[]>([]);
   const [currentExpenseIndex, setCurrentExpenseIndex] = useState(0);
   const [editingExpense, setEditingExpense] = useState<DraftExpense | null>(null);
@@ -103,6 +104,7 @@ export function EmailImport() {
     if (!file) return;
 
     setParseError(null);
+    setParseNotice(null);
     setFileName(file.name);
 
     const reader = new FileReader();
@@ -138,11 +140,16 @@ export function EmailImport() {
 
         // Parse data rows
         const parsedEmails: EmailData[] = [];
+        let skippedMissingRequiredRows = 0;
+        let skippedMalformedRows = 0;
         for (let i = 1; i < rows.length; i++) {
           const values = rows[i];
 
           // Skip rows with insufficient columns
-          if (values.length < headers.length) continue;
+          if (values.length < headers.length) {
+            skippedMalformedRows++;
+            continue;
+          }
 
           const email: EmailData = {
             id: values[idIndex] || `row-${i}`,
@@ -154,9 +161,8 @@ export function EmailImport() {
 
           // Validate required fields
           if (!email.from || !email.subject || !email.date || !email.body) {
-            setParseError(`Row ${i + 1} is missing required data`);
-            setEmails([]);
-            return;
+            skippedMissingRequiredRows++;
+            continue;
           }
 
           parsedEmails.push(email);
@@ -169,8 +175,17 @@ export function EmailImport() {
         }
 
         setEmails(parsedEmails);
+        const totalSkippedRows = skippedMissingRequiredRows + skippedMalformedRows;
+        if (totalSkippedRows > 0) {
+          setParseNotice(
+            `Loaded ${parsedEmails.length} email${parsedEmails.length === 1 ? '' : 's'}. Skipped ${totalSkippedRows} invalid row${totalSkippedRows === 1 ? '' : 's'}.`
+          );
+        } else {
+          setParseNotice(null);
+        }
       } catch {
         setParseError('Failed to parse CSV file');
+        setParseNotice(null);
         setEmails([]);
       }
     };
@@ -184,7 +199,14 @@ export function EmailImport() {
 
     try {
       const result = await scanEmailsMutation.mutateAsync(emails);
-      setDraftExpenses(result.expenses);
+      const zeroAmountExpenses = result.expenses.filter((expense) => expense.amount === 0);
+      const nonZeroExpenses = result.expenses.filter((expense) => expense.amount !== 0);
+
+      if (zeroAmountExpenses.length > 0) {
+        setSkippedCount((prev) => prev + zeroAmountExpenses.length);
+      }
+
+      setDraftExpenses(nonZeroExpenses);
       setCurrentStep('review');
     } catch (error) {
       setParseError(error instanceof Error ? error.message : 'Failed to scan emails');
@@ -291,6 +313,7 @@ export function EmailImport() {
             fileName={fileName}
             emails={emails}
             parseError={parseError}
+            parseNotice={parseNotice}
             onFileChange={handleFileChange}
             onStartScan={handleStartScan}
             isLoading={scanEmailsMutation.isPending}
@@ -330,6 +353,7 @@ export function EmailImport() {
                 setCurrentStep('upload');
                 setEmails([]);
                 setFileName('');
+                setParseNotice(null);
               }}
               className="mt-4 inline-flex items-center px-4 py-2 text-sm font-medium text-indigo-600 hover:text-indigo-800"
             >
@@ -348,6 +372,7 @@ export function EmailImport() {
               setCurrentStep('upload');
               setEmails([]);
               setFileName('');
+              setParseNotice(null);
               setDraftExpenses([]);
               setCurrentExpenseIndex(0);
               setImportedCount(0);
@@ -366,6 +391,7 @@ interface UploadStepProps {
   fileName: string;
   emails: EmailData[];
   parseError: string | null;
+  parseNotice: string | null;
   onFileChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onStartScan: () => void;
   isLoading: boolean;
@@ -376,6 +402,7 @@ function UploadStep({
   fileName,
   emails,
   parseError,
+  parseNotice,
   onFileChange,
   onStartScan,
   isLoading,
@@ -422,6 +449,15 @@ function UploadStep({
           <p className="text-sm text-red-700 flex items-center justify-center">
             <AlertCircle className="w-4 h-4 mr-2" />
             {parseError}
+          </p>
+        </div>
+      )}
+
+      {parseNotice && (
+        <div className="mt-4 p-3 bg-amber-50 border border-amber-200 rounded-md">
+          <p className="text-sm text-amber-800 flex items-center justify-center">
+            <AlertCircle className="w-4 h-4 mr-2" />
+            {parseNotice}
           </p>
         </div>
       )}

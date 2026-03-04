@@ -1,0 +1,61 @@
+id,from,to,subject,date,body,threadId
+pos_001,Uber <noreply@uber.com>,,Uber Trip Receipt,2025-11-01,Thanks for riding with Uber. Total: $24.18 charged to Visa.,pos_001
+pos_002,Starbucks <receipt@starbucks.com>,,Your Starbucks receipt,2025-11-02,Order #4451. Amount paid: $7.42.,pos_002
+pos_003,Amazon <auto-confirm@amazon.com>,,Amazon order invoice,2025-11-03,Your order has shipped. Order total charged: $56.90.,pos_003
+pos_004,Lyft <ride@lyftmail.com>,,Lyft ride receipt,2025-11-04,Ride complete. Charged $18.67.,pos_004
+pos_005,Hilton <receipts@hilton.com>,,Hotel booking confirmation,2025-11-05,Thank you for staying. Amount billed: $189.00.,pos_005
+pos_006,Adobe <no-reply@adobe.com>,,Adobe subscription payment,2025-11-06,We received your payment of $54.99.,pos_006
+pos_007,Walmart <ereceipt@walmart.com>,,Walmart eReceipt,2025-11-07,Payment method: Mastercard. Charged amount: $42.31.,pos_007
+pos_008,ConEdison <billing@coned.com>,,Electric bill paid,2025-11-08,Payment confirmation. Total paid: $121.54.,pos_008
+pos_009,GitHub <billing@github.com>,,GitHub Copilot invoice,2025-11-09,Invoice paid. Amount due and paid: $10.00.,pos_009
+pos_010,Delta <receipts@delta.com>,,Delta eReceipt,2025-11-10,Ticket receipt. Total charge: $412.88.,pos_010
+neg_001,Notion <hello@notion.so>,,Welcome to Notion,2025-11-01,Thanks for signing up. Get started with templates.,neg_001
+neg_002,Security <no-reply@service.com>,,Password reset requested,2025-11-02,Click here to reset your password.,neg_002
+neg_003,HR <newsletter@company.com>,,Weekly company newsletter,2025-11-03,Here are this week's updates and announcements.,neg_003
+neg_004,Manager <manager@work.com>,,Meeting moved to 3 PM,2025-11-04,Please join the Zoom call at 3 PM.,neg_004
+neg_005,Recruiting <jobs@firm.com>,,Job application received,2025-11-05,We received your application.,neg_005
+neg_006,Google <no-reply@accounts.google.com>,,Security alert,2025-11-06,New sign-in from Chrome on Mac.,neg_006
+neg_007,USPS <updates@usps.com>,,Your package is delayed,2025-11-07,Delivery delay due to weather.,neg_007
+neg_008,Calendar <invite@calendar.com>,,Calendar invite,2025-11-08,Invitation: Product kickoff.,neg_008
+neg_009,SaaS <updates@saas.com>,,Product update release notes,2025-11-09,New features shipped this month.,neg_009
+neg_010,Tool <noreply@tool.com>,,Trial ending soon,2025-11-10,Your free trial ends in 3 days. Add billing to continue.,neg_010
+amb_001,Restaurant <bookings@dine.com>,,Your reservation request,2025-11-01,Reservation held with card ending 4242. No charge unless cancellation fee applies.,amb_001
+amb_002,Hotel <frontdesk@hotel.com>,,Pre-authorization notice,2025-11-02,We placed a temporary hold of $100.00 that will be released.,amb_002
+amb_003,Vendor <billing@vendor.com>,,Invoice generated,2025-11-03,Invoice #9001 total $250.00 due in 15 days.,amb_003
+amb_004,Shop <orders@shop.com>,,Order pending payment,2025-11-04,Your order total is $44.20. Payment not yet completed.,amb_004
+amb_005,Service <billing@service.com>,,Subscription renewal failed,2025-11-05,We attempted to charge $19.99 but your card was declined.,amb_005
+amb_006,Agency <sales@agency.com>,,Quote for services,2025-11-06,"Estimated project cost: $1,200.00.",amb_006
+amb_007,RideNow <hello@ridenow.com>,,Ride estimate,2025-11-07,Estimated fare: $16-22 based on traffic.,amb_007
+amb_008,Store <noreply@store.com>,,Cart reminder,2025-11-08,Items in your cart total $82.11.,amb_008
+amb_009,Bank <alerts@bank.com>,,Payment initiated,2025-11-09,A transfer of $500.00 is pending review.,amb_009
+amb_010,Marketplace <support@market.com>,,Refund initiated,2025-11-10,Your refund of $32.40 has been initiated and is processing.,amb_010
+multi_001,Bistro <receipts@bistro.com>,,Dinner receipt,2025-11-01,"Items: Pasta $18.00, Wine $12.00. Subtotal $30.00, Tax $2.70, Tip $5.30, Total $38.00 charged.",multi_001
+multi_002,Office Depot <receipt@officedepot.com>,,Office Depot receipt,2025-11-02,"Pens $4.99, Paper $9.99, Staples $3.49. Tax $1.52. Total paid $19.99.",multi_002
+multi_003,Amazon <auto-confirm@amazon.com>,,Split shipment charge,2025-11-03,Shipment 1 charged $12.50. Shipment 2 charged $7.25. Order total $19.75.,multi_003
+multi_004,Metro <billing@metro.com>,,Transit pass + top-up,2025-11-04,Monthly pass $90.00 and card top-up $15.00 were charged. Total on statement $105.00.,multi_004
+multi_005,Airline <receipts@airline.com>,,Airline extras,2025-11-05,"Seat upgrade $39.00, checked bag $35.00, taxes $6.12. Total charged $80.12.",multi_005
+multi_006,Cafe <receipt@cafe.com>,,Restaurant group bill,2025-11-06,"Table share: Alex $14.20, Sam $18.30. You paid total $32.50.",multi_006
+multi_007,CloudCo <billing@cloudco.com>,,Cloud invoice,2025-11-07,"Compute $120.00, Storage $30.00, Support $20.00, Tax $17.00. Amount charged $187.00.",multi_007
+multi_008,Marketplace <orders@marketplace.com>,,Marketplace order,2025-11-08,Seller A charged $11.40. Seller B charged $8.60. Combined total $20.00.,multi_008
+multi_009,FuelStop <receipt@fuelstop.com>,,Gas station receipt,2025-11-09,"Fuel $46.12, Car wash $9.00. Total paid $55.12.",multi_009
+multi_010,Pharmacy <receipt@pharmacy.com>,,Pharmacy receipt,2025-11-10,"Prescription $12.00, OTC items $18.50, Tax $1.48, Total $31.98 charged.",multi_010
+refund_001,Uber <support@uber.com>,,Uber refund processed,2025-11-01,A refund of $-12.45 has been issued for trip A1.,refund_001
+refund_002,Amazon <returns@amazon.com>,,Amazon return completed,2025-11-02,We processed your return. Refund amount: -$26.99.,refund_002
+refund_003,Airline <care@airline.com>,,Airline voucher payout,2025-11-03,Compensation refund posted: -$75.00.,refund_003
+refund_004,Bank <alerts@bank.com>,,Restaurant chargeback reversal,2025-11-04,Temporary credit posted: -$48.20 merchant: Downtown Grill.,refund_004
+refund_005,SaaS <billing@saas.com>,,Subscription prorated credit,2025-11-05,Prorated refund this cycle: -$9.33.,refund_005
+refund_006,Hotel <billing@hotel.com>,,Hotel incidentals release,2025-11-06,Reversal posted for incidental hold: -$150.00.,refund_006
+refund_007,Store <returns@store.com>,,Retail return,2025-11-07,Your Visa has been credited -$34.10.,refund_007
+refund_008,Metro <support@metro.com>,,Transit overcharge correction,2025-11-08,Adjustment issued: -$2.75.,refund_008
+refund_009,Utility <billing@utility.com>,,Utility billing correction,2025-11-09,Account credit applied: -$18.00.,refund_009
+refund_010,Tickets <help@tickets.com>,,Event cancellation refund,2025-11-10,Canceled event refund posted: -$120.00.,refund_010
+fx_001,Taxi Paris <receipt@taxi.fr>,,Paris taxi receipt,2025-11-01,Montant facture: EUR 32.00.,fx_001
+fx_002,Hotel Tokyo <billing@hotel.jp>,,Tokyo hotel charge,2025-11-02,Total charged: JPY 18450.,fx_002
+fx_003,Rail UK <tickets@rail.co.uk>,,London train ticket,2025-11-03,Amount paid: GBP 18.40.,fx_003
+fx_004,Bistro CA <receipt@bistro.ca>,,Toronto dinner receipt,2025-11-04,Card charged CAD 64.30.,fx_004
+fx_005,Ride MX <receipt@ride.mx>,,Mexico rideshare receipt,2025-11-05,Total cobrado: MXN 285.00.,fx_005
+fx_006,Cowork DE <billing@cowork.de>,,Berlin coworking pass,2025-11-06,Invoice paid: EUR 79.00.,fx_006
+fx_007,Transit KR <receipt@transit.kr>,,Seoul airport bus,2025-11-07,Payment complete: KRW 17000.,fx_007
+fx_008,Event AU <billing@event.au>,,Sydney conference fee,2025-11-08,Received payment AUD 240.00.,fx_008
+fx_009,Restaurant CH <receipt@restaurant.ch>,,Zurich meal receipt,2025-11-09,Total paid: CHF 58.50.,fx_009
+fx_010,Transit SE <noreply@transit.se>,,Stockholm train pass,2025-11-10,Kortkop debiterad SEK 450.00.,fx_010

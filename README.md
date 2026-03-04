@@ -74,3 +74,48 @@ After seeding, you can login with:
 
 ### Categories
 - `GET /api/categories` - List all categories
+
+## Evals
+
+Run the email extraction eval runner against the golden JSONL dataset:
+
+```bash
+cd backend
+npx tsx ../evals/runners/run_email_extraction_eval.ts
+```
+
+This now performs both steps automatically:
+- Runs extraction and saves raw run output to `evals/datasets/results/*.jsonl`
+- Scores the run and writes reports to `evals/results/`
+- Updates an aggregate report across all single-run score reports in `evals/results/`
+
+Run multiple times in one command:
+
+```bash
+cd backend
+npx tsx ../evals/runners/run_email_extraction_eval.ts --runs=5
+```
+
+You can also use `--runs 5`.
+
+Dry run (no LLM/API calls):
+
+```bash
+cd backend
+npx tsx ../evals/runners/run_email_extraction_eval.ts --dry-run
+```
+
+Optional flags:
+- `--dataset <path>`: Use a custom JSONL dataset (default: `evals/datasets/golden/email_expense_golden_v1.jsonl`)
+- `--output <path>`: Write results to a custom JSONL file (default: timestamped file under `evals/datasets/results/`)
+
+Notes:
+- Non-dry runs require `GEMINI_API_KEY` in `backend/.env`.
+- Results are written as JSONL, one result object per case.
+
+You can also run scoring directly:
+
+```bash
+cd backend
+npx tsx ../evals/scoring/score_email_extraction_eval.ts --results ../evals/datasets/results/<run_output>.jsonl
+```
